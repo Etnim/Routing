@@ -1,3 +1,8 @@
+.active{
+  color: gray;
+  background: #571845;
+}
+
 .container {
     display: flex;
     flex-flow: row wrap;
@@ -47,7 +52,7 @@ nav ul li a:hover {
     background: #ff5733;
 }
 
-.container .content { 
+.container .content {
     flex: 5 0 0;
     padding: 10px 20px;
 }
