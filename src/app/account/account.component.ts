@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { BalanceComponent } from '../balance/balance.component';
+import {BalanceComponent} from '../balance/balance.component';
 import {ActivatedRoute} from "@angular/router";
 
 interface Account {
@@ -16,13 +16,14 @@ interface Account {
 })
 
 
-
-export class AccountComponent {
+export class AccountComponent implements OnInit{
   constructor(private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.paramMap.subscribe((data)=>{
+  }
+  ngOnInit() {
+    this.activatedRoute.paramMap.subscribe((data) => {
       const id = parseInt(<string>data.get('id'));
-      const accountIndex = id-1;
-      this.accountsToShow =[this.accounts[accountIndex]];
+      const accountIndex = id - 1;
+      this.accountsToShow = [this.accounts[accountIndex]];
     });
   }
 
@@ -30,15 +31,16 @@ export class AccountComponent {
     name: 'Savings account',
     balance: 100
   },
-  {
-    name: 'Checking account',
-    balance: 200
-  }]
+    {
+      name: 'Checking account',
+      balance: 200
+    }]
   accountsToShow: Account[] = this.accounts
 
   withdraw(account: Account, amount: number) {
     account.balance -= amount;
   }
+
   deposit(account: Account, amount: number) {
     account.balance += amount;
   }
