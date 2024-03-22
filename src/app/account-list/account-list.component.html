@@ -1,1 +1,5 @@
-<p>account-list works!</p>
+@for(account of accounts; track account.name){
+  <a [routerLink] ="['/account', account.id]">
+    <img [src]="account.imageUrl" width="300"/>
+  </a>
+}

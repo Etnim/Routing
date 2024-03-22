@@ -18,7 +18,7 @@ export const routes: Routes = [
   {
     path:'account/:id',
     component: AccountComponent,
-    canActivate: [filterAccessToAccountGuard],
+    // canActivate: [filterAccessToAccountGuard],
   },
   {
     path :'contacts',
