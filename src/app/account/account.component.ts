@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { BalanceComponent } from '../balance/balance.component';
+import {ActivatedRoute} from "@angular/router";
 
 interface Account {
   name: string;
@@ -13,7 +14,18 @@ interface Account {
   templateUrl: './account.component.html',
   styleUrl: './account.component.scss'
 })
+
+
+
 export class AccountComponent {
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.activatedRoute.paramMap.subscribe((data)=>{
+      const id = parseInt(<string>data.get('id'));
+      const accountIndex = id-1;
+      this.accountsToShow =[this.accounts[accountIndex]];
+    });
+  }
+
   accounts: Account[] = [{
     name: 'Savings account',
     balance: 100

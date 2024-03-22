@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: AccountComponent,
   },
   {
+    path:'account/:id',
+    component: AccountComponent,
+  },
+  {
     path :'contacts',
     component : ContactsComponent,
   },
